@@ -10,6 +10,7 @@ source:
   sha256: 806dc294fec5028bf0399d9c8df30538c39aff2093828d093b9599835a61b802
 
 build:
+  noarch: python
   skip: true  # [python_impl == 'pypy']
   number: 2
   script_env:
@@ -26,7 +27,7 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+#    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - pip
@@ -36,6 +37,7 @@ requirements:
     - cython >=3.0
     - numpy
     - extension-helpers
+    - wheel
   run:
     - python
     - numpy >=1.20.0
@@ -50,10 +52,12 @@ test:
     - gstools
   requires:
     - pytest
+    - pip
   source_files:
     - tests
   commands:
     - pytest -vv tests
+    - pip check
 
 about:
   home: https://github.com/GeoStat-Framework/GSTools
@@ -77,6 +81,10 @@ about:
   dev_url: https://github.com/GeoStat-Framework/GSTools
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/49247
+    reason: Client request
   recipe-maintainers:
+    - ianaobi
     - MuellerSeb
     - LSchueler
