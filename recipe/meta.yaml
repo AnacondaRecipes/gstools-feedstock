@@ -29,7 +29,6 @@ requirements:
     - {{ compiler('c') }}
 #    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - _openmp_mutex
   host:
     - pip
     - python
@@ -39,6 +38,7 @@ requirements:
     - numpy
     - extension-helpers
     - wheel
+    - _openmp_mutex
   run:
     - python
     - numpy >=1.20.0
