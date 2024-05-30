@@ -52,6 +52,7 @@ test:
     - gstools
   requires:
     - pytest
+    - pip
   source_files:
     - tests
   commands:
