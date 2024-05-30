@@ -46,7 +46,6 @@ requirements:
     - hankel >=1.0.0
     - pyevtk >=1.1.1
     - meshio >=5.1.0
-    _openmp_mutex
 
 test:
   imports:
